@@ -1,7 +1,9 @@
 /* Crea una matrice quadrata piena di numeri random
-da 0 a 9. Crea poi il vettore risultato prendendo i 
-soli numeri divisibile per 3 dalla matrice iniziale. */
-
+0-9.
+- Stampa la matrice invertendo le righe
+- Stampa la matrice invertendo le colonne
+- Stampa la matrice trasposta
+*/
 #include <iostream>
 using namespace std;
 
@@ -12,7 +14,6 @@ int main()
     //            Y       X
     //           LAT     LONG
     int matrice[righe][colonne];
-    int risultato[righe, colonne];
     for (int i = 0; i < righe; i++)
     {
         for (int j = 0; j < colonne; j++)
@@ -41,5 +42,4 @@ int main()
         }
         cout << endl;
     }   
-    
 }
