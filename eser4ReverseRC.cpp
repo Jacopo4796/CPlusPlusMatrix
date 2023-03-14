@@ -6,40 +6,74 @@
 */
 #include <iostream>
 using namespace std;
+const int RIGHE = 5;
+const int COLONNE = 5;
+// Riempio la matrice di numeri randomici
+void riempiMatrix(int matrice[][COLONNE])
+{
+    for (int i = 0; i < RIGHE; i++)
+    {
+        for (int j = 0; j < COLONNE; j++)
+        {
+            matrice[i][j] = rand() % 10; 
+        }
+    }
+}
+// Stampo i numeri randomici dentro la matrice
+void stampaMatrix(int matrice[][COLONNE])
+{
+    cout << "    ";
+    for (int i = 0; i < COLONNE; i++) // Scorro l'indice delle colonne
+    {
+        cout << i << "  "; // Stampo l'indice delle colonne
+    }
+    cout << endl;
+    for (int i = 0; i < RIGHE; i++) // Scorro l'indice delle righe
+    {
+        cout << i << "   "; // Stampo l'indice delle righe
+        for (int j = 0; j < COLONNE; j++)
+        {
+            cout << matrice[i][j] << "  "; 
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
-    int righe = 5;
-    int colonne = 5;
     //            Y       X
     //           LAT     LONG
-    int matrice[righe][colonne];
-    for (int i = 0; i < righe; i++)
-    {
-        for (int j = 0; j < colonne; j++)
-        {
-            matrice[i][j] = rand() % 10;
-        }
-    }
-    cout << "    ";
-    for (int i = 0; i < colonne; i++)
-    {
-        cout << i << " ";
-    }
+    int matrice[RIGHE][COLONNE];
+    riempiMatrix(matrice); // Richiamo la funzione per riempire la matrice
+    stampaMatrix(matrice); // Richiamo la funzione per stampare la matrice
     cout << endl;
-    int trattini = colonne * 2 + 4;
-    for (int i = 0; i < trattini; i++)
+    cout << "La matrice con le righe invertite è: \n";
+    for (int i = RIGHE - 1; i >= 0; i--) // Scorro le righe partendo dall'ultima
     {
-        cout << "-";
-    }
-    cout << endl;
-    for (int i = 0; i < righe; i++)
-    {
-        cout << i << "|  ";
-        for (int j = 0; j < colonne; j++)
+        for (int j = 0; j < COLONNE; j++) // Scorro le colonne
         {
-            cout << matrice[i][j] << " ";
+            cout << matrice[i][j] << " "; // Stampo la matrice con le righe invertite
         }
         cout << endl;
-    }   
+    }
+    cout << endl;
+    cout << "La matrice con le colonne invertite è: \n";
+    for (int i = 0; i < RIGHE; i++) // Scorro le righe
+    {
+        for (int j = COLONNE - 1; j >= 0; j--) // Scorro le colonne partendo dall'ultima
+        {
+            cout << matrice[i][j] << " "; // Stampo la matrice con le colonne invertite 
+        }
+        cout << endl;
+    }
+    cout << endl;
+    cout << "La matrice trasposta è: \n";
+    for (int i = 0; i < RIGHE; i++) // Scorro le righe
+    {
+        for (int j = 0; j < COLONNE; j++) // Scorro le colonne
+        {
+            cout << matrice[j][i] << " "; // Stampo la matrice invertendo l'indice delle righe con quello delle colonne
+        }
+        cout << endl;
+    }
 }
