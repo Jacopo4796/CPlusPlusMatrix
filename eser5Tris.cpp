@@ -2,47 +2,47 @@
 
 using namespace std;
 
-// 0 1 2 
-// 3 4 5 
-// 6 7 8 
+// 0 1 2
+// 3 4 5
+// 6 7 8
 
-// 1 per la vittoria
-// 0 per continuare la partita
+//  1 per la vittoria
+//  0 per continuare la partita
 // -1 per il pareggio
 int isWinner(char *arr)
 {
-    for(int i = 0; i < 7; i += 3) // Righe (indice max riga 6)
+    for (int i = 0; i < 7; i += 3) // Righe (indice max riga 6)
     {
-        if(arr[i] != '-')
+        if (arr[i] != '-')
         {
-            if((arr[i] == arr[i + 1]) && (arr[i + 1] == arr[i + 2]))
+            if ((arr[i] == arr[i + 1]) && (arr[i + 1] == arr[i + 2]))
             {
-                return 1;
-            }
-        } 
-    }
-    for(int i = 0; i < 3; i++) // Colonne (indice max colonna 2)
-    {
-        if(arr[i] != '-')
-        {
-            if((arr[i] == arr[i + 3]) && (arr[i] == arr[i + 6]))
-            {
-                return 1;
+                return 1; // Hai vinto
             }
         }
     }
-    if(((arr[0] != '-') && (arr[0] == arr[4]) && (arr[0] == arr[8])) || ((arr[2] != '-') && (arr[2] == arr[4]) && (arr[2] == arr[6]))) // Diagonali
+    for (int i = 0; i < 3; i++) // Colonne (indice max colonna 2)
     {
-        return 1;
-    }
-    for(int i = 0; i < 9; i++)
-    {
-        if(arr[i] == '-') // 
+        if (arr[i] != '-')
         {
-            return 0;
+            if ((arr[i] == arr[i + 3]) && (arr[i] == arr[i + 6]))
+            {
+                return 1; // Hai vinto
+            }
         }
     }
-    return -1;
+    if (((arr[0] != '-') && (arr[0] == arr[4]) && (arr[0] == arr[8])) || ((arr[2] != '-') && (arr[2] == arr[4]) && (arr[2] == arr[6]))) // Diagonali
+    {
+        return 1; // Hai vinto
+    }
+    for (int i = 0; i < 9; i++) // Scorro tutto l'array
+    {
+        if (arr[i] == '-') // Se ci sono spazi "vuoti"
+        {
+            return 0; // Continua a giocare
+        }
+    }
+    return -1; // Se non viene realizzata nessuna delle condizioni precedenti allora c'è un pareggio
 }
 
 void stampa(char *a)
@@ -76,7 +76,7 @@ int main()
         int mossa;
         cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
         cin >> mossa;
-        mossa--; // per capirci ;)
+        mossa--;                                                        // per capirci ;)
         while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9))) // controllo 2 condizioni (valido e vuoto)
         {
             cout << "Non puoi inserire qui" << endl;
