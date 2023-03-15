@@ -24,26 +24,25 @@ int main()
     cout << endl;
     for (int i = 0; i < righe; i++) // Scorro l'indice delle righe
     {
-        int sumRighe = 0; 
+        int sumRighe = 0;
         cout << i << "   "; // Stampo l'indice delle righe
         for (int j = 0; j < colonne; j++)
-        { 
-            sumRighe += matrice[i][j];
-            cout << matrice[i][j] << "   "; // Stampo i numeri randomici dentro la matrice 
+        {
+            sumRighe += matrice[i][j];      // Sommo le righe
+            cout << matrice[i][j] << "   "; // Stampo i numeri randomici dentro la matrice
         }
-        cout << "| " << sumRighe;
+        cout << "| " << sumRighe; // Stampo la somma delle righe
         cout << endl;
     }
     cout << endl;
     cout << "   ";
-    for (int i = 0; i < colonne; i++) // Scorro le colonne
+    for (int j = 0; j < colonne; j++) // Scorro le colonne
     {
-        
         int sumColonne = 0;             // Imposto il contatore a zero
-        for (int j = 0; j < righe; j++) // Scorro le righe
+        for (int i = 0; i < righe; i++) // Scorro le righe
         {
-            sumColonne += matrice[j][i]; // Sommo le colonne della matrice
-        }      
+            sumColonne += matrice[i][j]; // Sommo le colonne della matrice
+        }
         cout << sumColonne << "  "; // Stampo la somma delle colonne della matrice
     }
 }

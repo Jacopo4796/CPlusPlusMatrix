@@ -47,7 +47,7 @@ int main()
             }
         }
     }
-    int arrayDiv[contali]; // Creo un'array
+    int arrayDiv[contali]; // Creo un'array lungo "contali"
     int k = 0; // Creo l'indice dell'array
     for (int i = 0; i < righe; i++)
     {

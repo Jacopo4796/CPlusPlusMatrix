@@ -15,25 +15,27 @@ void riempiMatrix(int matrice[][COLONNE])
     {
         for (int j = 0; j < COLONNE; j++)
         {
-            matrice[i][j] = rand() % 10; 
+            matrice[i][j] = rand() % 10;
         }
     }
 }
 // Stampo i numeri randomici dentro la matrice
 void stampaMatrix(int matrice[][COLONNE])
 {
+    cout << endl;
     cout << "    ";
     for (int i = 0; i < COLONNE; i++) // Scorro l'indice delle colonne
     {
         cout << i << "  "; // Stampo l'indice delle colonne
     }
     cout << endl;
+    cout << endl;
     for (int i = 0; i < RIGHE; i++) // Scorro l'indice delle righe
     {
         cout << i << "   "; // Stampo l'indice delle righe
         for (int j = 0; j < COLONNE; j++)
         {
-            cout << matrice[i][j] << "  "; 
+            cout << matrice[i][j] << "  ";
         }
         cout << endl;
     }
@@ -62,7 +64,7 @@ int main()
     {
         for (int j = COLONNE - 1; j >= 0; j--) // Scorro le colonne partendo dall'ultima
         {
-            cout << matrice[i][j] << " "; // Stampo la matrice con le colonne invertite 
+            cout << matrice[i][j] << " "; // Stampo la matrice con le colonne invertite
         }
         cout << endl;
     }
