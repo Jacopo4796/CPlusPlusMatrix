@@ -74,15 +74,26 @@ int main()
     while (true)         // i turni del gioco
     {
         int mossa;
-        cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
-        cin >> mossa;
-        mossa--;                                                        // per capirci ;)
-        while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9))) // controllo 2 condizioni (valido e vuoto)
+        if (!xIsNext) // Se sono giocatore 2
         {
-            cout << "Non puoi inserire qui" << endl;
+            mossa = rand() % 10;
+            while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9)))
+            {
+                mossa = rand() % 10;
+            }
+        }
+        else
+        {
             cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
             cin >> mossa;
             mossa--;
+            while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9))) // controllo 2 condizioni (valido e vuoto)
+            {
+                cout << "Non puoi inserire qui" << endl;
+                cout << "Giocatore " << (xIsNext ? 'X' : 'O') << " inserisci la tua mossa (1-9) ";
+                cin >> mossa;
+                mossa--;
+            }
         }
         // se sono arrivato qui è solo perchè l'utente ha inserito un numero corretto
         xIsNext ? tabella[mossa] = 'X' : tabella[mossa] = 'O'; // se è vero metti X altrimenti metti O
