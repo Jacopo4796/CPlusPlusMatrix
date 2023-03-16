@@ -6,6 +6,11 @@ using namespace std;
 // 3 4 5
 // 6 7 8
 
+int mossaPensata(char *tab)
+{
+    
+}
+
 //  1 per la vittoria
 //  0 per continuare la partita
 // -1 per il pareggio
@@ -76,7 +81,7 @@ int main()
         int mossa;
         if (!xIsNext) // Se sono giocatore 2
         {
-            mossa = rand() % 10;
+            mossa = mossaPensata(tabella);
             while (tabella[mossa] != vuoto || (!(0 <= mossa && mossa < 9)))
             {
                 mossa = rand() % 10;
